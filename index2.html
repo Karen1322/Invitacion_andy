@@ -1,0 +1,852 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Club Misterio | Andrea cumple 9</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Creepster&family=Playfair+Display:wght@500;600;700;800&family=Lora:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --morado: #4b1680;
+    --violeta: #8b35c9;
+    --lila: #d8b4fe;
+    --rosa: #ff9bd2;
+    --amarillo: #ffe28a;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 10% 10%, #7734a8, transparent 30%),
+        radial-gradient(circle at 90% 70%, #61258f, transparent 35%),
+        linear-gradient(140deg, #1d0633, #3e1265, #21083c);
+    font-family: 'Lora', serif;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* FONDO */
+
+.flotante {
+    position: fixed;
+    font-size: 28px;
+    opacity: .55;
+    pointer-events: none;
+    animation: flotar 7s infinite ease-in-out;
+    z-index: 0;
+}
+
+@keyframes flotar {
+    0%,100% {
+        transform: translateY(0) rotate(-10deg);
+    }
+    50% {
+        transform: translateY(-25px) rotate(12deg);
+    }
+}
+
+.estrellas {
+    position: fixed;
+    color: #ffe28a;
+    animation: brillar 2s infinite alternate;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes brillar {
+    from { opacity: .2; }
+    to { opacity: 1; }
+}
+
+/* MENÚ */
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(28, 5, 48, .94);
+    backdrop-filter: blur(10px);
+    padding: 14px 10px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #a65be4;
+}
+
+nav a {
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 9px 13px;
+    border-radius: 20px;
+    transition: .3s;
+}
+
+nav a:hover {
+    background: #a64dff;
+    transform: translateY(-2px);
+}
+
+/* SECCIONES */
+
+section {
+    width: 100%;
+    max-width: 850px;
+    margin: auto;
+    padding: 65px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.tarjeta {
+    background: linear-gradient(145deg,
+        rgba(112, 44, 159, .92),
+        rgba(39, 9, 66, .96));
+    border: 2px solid rgba(216,180,254,.7);
+    border-radius: 28px;
+    padding: 35px 25px;
+    box-shadow: 0 0 30px rgba(190,120,255,.22);
+    text-align: center;
+}
+
+/* PORTADA */
+
+.portada {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.etiqueta {
+    font-family: 'Poppins', sans-serif;
+    color: var(--amarillo);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 4px;
+}
+
+.titulo {
+    font-family: 'Creepster', cursive;
+    font-size: clamp(45px, 10vw, 75px);
+    color: #e8c3ff;
+    text-shadow: 0 0 20px #bd72ff;
+    margin: 18px 0;
+}
+
+.nombre {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(25px, 6vw, 38px);
+    font-weight: 700;
+    color: white;
+    line-height: 1.3;
+}
+
+.numero {
+    font-family: 'Creepster', cursive;
+    font-size: 150px;
+    line-height: 1.1;
+    color: var(--amarillo);
+    text-shadow: 0 0 25px #ffbd39;
+    animation: pulso 2s infinite;
+}
+
+@keyframes pulso {
+    50% { transform: scale(1.07); }
+}
+
+.texto {
+    font-size: 15px;
+    line-height: 2;
+    color: #f5e8ff;
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+.sello {
+    display: inline-block;
+    border: 2px dashed var(--rosa);
+    color: var(--rosa);
+    padding: 8px 16px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    transform: rotate(-4deg);
+    margin: 18px 0;
+}
+
+.boton {
+    display: inline-block;
+    padding: 13px 25px;
+    margin-top: 18px;
+    border-radius: 30px;
+    background: linear-gradient(90deg, #e0aaff, #ff9bd2);
+    color: #39075c;
+    text-decoration: none;
+    font-weight: 800;
+    transition: .3s;
+    box-shadow: 0 0 18px #bd72ff;
+}
+
+.boton:hover {
+    transform: scale(1.07);
+    box-shadow: 0 0 30px white;
+}
+
+/* IMAGEN DEBAJO DEL NUMERO 9 */
+
+.imagen-debajo {
+    width: 200px;
+    height: auto;
+    display: block;
+    margin: 15px auto 10px auto;
+    border-radius: px;
+    object-fit: contain;
+    box-shadow: 0 0 15px #d8b4fe;
+}
+
+/* TÍTULOS */
+
+.titulo-seccion {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(27px, 6vw, 38px);
+    color: var(--amarillo);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.icono {
+    font-size: 45px;
+    margin-bottom: 12px;
+}
+
+/* DATOS */
+
+.datos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.dato {
+    background: rgba(255,255,255,.09);
+    border: 1px solid #c77dff;
+    border-radius: 18px;
+    padding: 23px 12px;
+    transition: .3s;
+}
+
+.dato:hover {
+    transform: translateY(-6px);
+    background: rgba(255,255,255,.16);
+}
+
+.dato .emoji {
+    font-size: 35px;
+}
+
+.dato h3 {
+    color: var(--amarillo);
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+.dato p {
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* UBICACIÓN */
+
+.mision {
+    background: rgba(255,226,138,.10);
+    border: 1px dashed var(--amarillo);
+    border-radius: 20px;
+    padding: 25px;
+    margin-top: 25px;
+}
+
+.mision h3 {
+    color: var(--amarillo);
+    margin-bottom: 12px;
+}
+
+/* AGENDA */
+
+.actividades {
+    display: grid;
+    gap: 15px;
+    margin-top: 25px;
+    text-align: left;
+}
+
+.actividad {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(255,255,255,.09);
+    border-radius: 16px;
+    padding: 17px;
+    border-left: 4px solid var(--rosa);
+    transition: .3s;
+}
+
+.actividad:hover {
+    transform: translateX(6px);
+}
+
+.actividad span {
+    font-size: 30px;
+}
+
+.actividad p {
+    font-size: 14px;
+}
+
+/* PIE */
+
+footer {
+    text-align: center;
+    padding: 35px 15px;
+    background: rgba(15,2,27,.6);
+    color: #e8c3ff;
+    font-size: 12px;
+}
+
+/* FANTASMA */
+
+.boton-fantasma {
+    position: fixed;
+    bottom: 25px;
+    right: 22px;
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    border: 2px solid #e0aaff;
+    background: linear-gradient(145deg, #d8b4fe, #8b35c9);
+    box-shadow:
+        0 0 15px #c77dff,
+        0 0 30px rgba(199,125,255,.6);
+    cursor: pointer;
+    z-index: 100;
+    font-size: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .3s;
+}
+
+.boton-fantasma:hover {
+    transform: scale(1.15) rotate(-10deg);
+    box-shadow: 0 0 30px white;
+}
+
+.boton-fantasma.reproduciendo {
+    animation: fantasma 1.5s infinite ease-in-out;
+}
+
+@keyframes fantasma {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.aviso-musica {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    background: #310b50;
+    border: 1px solid #d8b4fe;
+    border-radius: 15px;
+    padding: 10px 15px;
+    font-size: 11px;
+    color: white;
+    z-index: 100;
+    box-shadow: 0 0 15px rgba(199,125,255,.5);
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 480px) {
+
+    nav {
+        gap: 3px;
+    }
+
+    nav a {
+        font-size: 10px;
+        padding: 8px;
+    }
+
+    .tarjeta {
+        padding: 28px 17px;
+    }
+
+    section {
+        padding: 45px 14px;
+    }
+
+    .boton-fantasma {
+        width: 60px;
+        height: 60px;
+        font-size: 30px;
+        right: 15px;
+        bottom: 18px;
+    }
+}
+.imagen-misterio {
+    width: 190px;
+    height: 220px;
+    object-fit: contain;
+    display: block;
+    margin: 20px auto;
+    border-radius: 15px;
+}
+
+.imagen-mision {
+    width: 200px;
+    height: 180px;
+    object-fit: contain;
+    display: block;
+    margin: 15px auto 20px auto;
+}
+.imagen-agenda {
+    width: 230px;
+    height: 190px;
+    object-fit: contain;
+    display: block;
+    margin: 15px auto 20px auto;
+}
+.imagen-mision-final {
+    width: 200px;
+    height: 180px;
+    object-fit: contain;
+    display: block;
+    margin: 15px auto 20px auto;
+}
+</style>
+</head>
+
+<body>
+
+<!-- DECORACIONES -->
+
+<div class="flotante" style="top:15%;left:5%">🔎</div>
+<div class="flotante" style="top:35%;right:5%">🐾</div>
+<div class="flotante" style="top:65%;left:4%">🔐</div>
+<div class="flotante" style="top:85%;right:6%">🕵️</div>
+<div class="flotante" style="top:120%;left:8%">🧩</div>
+<div class="flotante" style="top:180%;right:7%">⭐</div>
+
+<div class="estrellas" style="top:20%;left:25%">✦</div>
+<div class="estrellas" style="top:50%;right:20%">✧</div>
+<div class="estrellas" style="top:100%;left:70%">✦</div>
+<div class="estrellas" style="top:160%;right:25%">✧</div>
+
+<!-- MENÚ -->
+
+<nav>
+    <a href="#inicio">🏠 INICIO</a>
+    <a href="#invitacion">💌 INVITACIÓN</a>
+    <a href="#datos">📁 DATOS</a>
+    <a href="#agenda">🎉 AGENDA</a>
+    <a href="#confirmar">🔐 CONFIRMAR</a>
+</nav>
+
+<!-- PORTADA -->
+
+<section id="inicio" class="portada">
+
+<div class="tarjeta">
+
+    <div class="etiqueta">
+        🕵️ CLUB MISTERIO 🕵️
+    </div>
+
+    <div class="sello">
+        EXPEDIENTE CONFIDENCIAL
+    </div>
+
+ <h1 class="titulo">
+    ¡MISIÓN ESPECIAL!
+</h1>
+
+
+<div class="numero">9</div>
+
+<p class="etiqueta">
+    AÑOS DE AVENTURAS
+</p>
+    <br>
+<img src="C:\Users\karen\OneDrive\Documentos\Invitacion_andy\Invitacion.html\src\imag1.jpeg" alt="Andrea" class="imagen-debajo">
+
+<p class="texto">
+    <div class="nombre">ANDREA ESTEFANÍA<br>HERRERA TULA</div>
+
+    ¡Un nuevo misterio está por comenzar!<br>
+    ¿Estás listo para aceptar la misión?
+</p>
+
+    <a href="#invitacion" class="boton">
+        🔎 DESCUBRIR MISIÓN
+    </a>
+
+</div>
+</section>
+
+<!-- INVITACIÓN -->
+
+<section id="invitacion">
+
+<div class="tarjeta">
+
+    <div class="icono">💌</div>
+
+    <h2 class="titulo-seccion">
+        ¡Estás invitado!
+    </h2>
+
+   <div class="sello">
+    CASO N.º 009
+</div>
+
+<img src="C:\Users\karen\OneDrive\Documentos\Invitacion_andy\Invitacion.html\src\img2.jpeg" class="imagen-misterio" alt="Imagen del misterio">
+
+<p class="texto">
+    Atención, agente:
+    <br><br>
+
+    Se ha descubierto un acontecimiento
+    muy especial. Nuestra integrante
+    Andrea Estefanía está por cumplir
+    9 años y necesita reunir a sus mejores
+    compañeros para celebrar esta gran aventura.
+    <br><br>
+
+    ¡Tu presencia será una pieza fundamental
+    para resolver este divertido misterio!
+</p>
+
+    <div class="mision">
+
+        <h3>🕵️ TU MISIÓN</h3>
+
+        <p class="texto">
+            Asistir a la celebración, disfrutar
+            de cada sorpresa y convertirte en
+            parte de una aventura inolvidable.
+        </p>
+
+    </div>
+
+</div>
+</section>
+
+<!-- DATOS -->
+
+<section id="datos">
+
+<div class="tarjeta">
+
+    <div class="icono">📂</div>
+
+    <h2 class="titulo-seccion">
+    Datos de la misión
+</h2>
+
+<img src="C:\Users\karen\OneDrive\Documentos\Invitacion_andy\Invitacion.html\src\img4.jpeg" class="imagen-mision" alt="Imagen de la misión">
+
+<p class="texto">
+    ¡Agente! Esta es la información
+    clasificada para llegar a nuestra celebración.
+</p>
+
+    <div class="datos-grid">
+
+        <div class="dato">
+            <div class="emoji">📅</div>
+            <h3>FECHA</h3>
+            <p>5 de diciembre de 2026</p>
+        </div>
+
+        <div class="dato">
+            <div class="emoji">⏰</div>
+            <h3>HORA</h3>
+            <p>4:30 p. m.</p>
+        </div>
+
+        <div class="dato">
+            <div class="emoji">🎉</div>
+            <h3>LUGAR</h3>
+            <p>Salón CHIRIKITITOS</p>
+        </div>
+
+    </div>
+
+    <div class="mision">
+
+        <h3>📍 UBICACIÓN SECRETA</h3>
+
+        <p class="texto">
+            Salón CHIRIKITITOS
+            <br>
+            Calle Sericultura 184
+            <br>
+            C.P. 15300, Venustiano Carranza,
+            Ciudad de México.
+        </p>
+
+        <a class="boton"
+           href="https://www.bing.com/maps/search?FORM=HDRSC6&q=CHIRIKITITOS%2C+Calle+Sericultura+184%2C+15300+Venustiano+Carranza%2C+Ciudad+de+M%C3%A9xico&cp=19.445156%7E-99.110497&lvl=16&style=r"
+           target="_blank">
+           📍 DESCUBRIR UBICACIÓN
+        </a>
+
+    </div>
+
+</div>
+</section>
+
+<!-- AGENDA -->
+
+<section id="agenda">
+
+<div class="tarjeta">
+
+    <div class="icono">🧩</div>
+
+    <h2 class="titulo-seccion">
+    Agenda secreta
+</h2>
+
+<img src="C:\Users\karen\OneDrive\Documentos\Invitacion_andy\Invitacion.html\src\img6.jpeg" class="imagen-agenda" alt="Agenda secreta">
+
+<p class="texto">
+    ¡Estas son las actividades que nos esperan
+    en esta increíble misión!
+</p>
+    <div class="actividades">
+
+        <div class="actividad">
+            <span>🎈</span>
+            <p>
+                <strong>Bienvenida de agentes</strong>
+                <br>
+                ¡Prepárate para comenzar la aventura!
+            </p>
+        </div>
+
+        <div class="actividad">
+            <span>🔎</span>
+            <p>
+                <strong>Búsqueda de pistas</strong>
+                <br>
+                Una misión llena de sorpresas.
+            </p>
+        </div>
+
+        <div class="actividad">
+            <span>🎮</span>
+            <p>
+                <strong>Juegos y diversión</strong>
+                <br>
+                ¡Que comience la diversión!
+            </p>
+        </div>
+
+        <div class="actividad">
+            <span>🎂</span>
+            <p>
+                <strong>Momento del pastel</strong>
+                <br>
+                Celebremos los 9 años de Andrea.
+            </p>
+        </div>
+
+        <div class="actividad">
+            <span>🎁</span>
+            <p>
+                <strong>¡Sorpresas especiales!</strong>
+                <br>
+                El misterio aún no termina...
+            </p>
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+<!-- CONFIRMACIÓN -->
+
+<section id="confirmar">
+
+<div class="tarjeta">
+
+    <div class="icono">🔐</div>
+
+    <h2 class="titulo-seccion">
+    ¿Aceptas la misión?
+</h2>
+
+<img src="C:\Users\karen\OneDrive\Documentos\Invitacion_andy\Invitacion.html\src\img5.jpeg" class="imagen-mision-final" alt="Aceptas la misión">
+
+    <p class="texto">
+        Tu presencia es importante para
+        completar esta aventura.
+        <br><br>
+
+        Confirma tu asistencia y prepárate
+        para descubrir todos los secretos
+        del Club Misterio.
+    </p>
+
+    <a class="boton"
+       href="https://wa.me/525540423020?text=Hola%2C%20confirmo%20mi%20asistencia%20a%20la%20fiesta%20de%20Andrea%20Estefania%20por%20sus%209%20años."
+       target="_blank">
+       💜 ACEPTAR MISIÓN
+    </a>
+
+    <p class="texto">
+        ¡Andrea te espera!
+    </p>
+
+    <div class="sello">
+        MISIÓN: CELEBRAR
+    </div>
+
+</div>
+</section>
+
+<!-- PIE DE PÁGINA -->
+
+<footer>
+    🔎 CLUB MISTERIO 🔎
+    <br><br>
+    ARCHIVO CONFIDENCIAL N.º 009
+    <br>
+    Andrea Estefanía Herrera Tula
+    <br>
+    ¡Gracias por formar parte de esta aventura!
+</footer>
+
+<!-- MÚSICA -->
+<audio id="musica" loop preload="metadata">
+    <source src="./cancion.mp3" type="audio/mpeg">
+    Tu navegador no puede reproducir este audio.
+</audio>
+
+<!-- AVISO DE MÚSICA -->
+<div class="aviso-musica" id="avisoMusica">
+    🎵 ¡Activa la música!
+</div>
+
+<!-- BOTÓN FANTASMA -->
+<button
+    class="boton-fantasma"
+    id="botonMusica"
+    aria-label="Reproducir música"
+    title="Reproducir música">
+    👻
+</button>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const musica = document.getElementById("musica");
+    const botonMusica = document.getElementById("botonMusica");
+    const avisoMusica = document.getElementById("avisoMusica");
+
+    function actualizarBoton(sonando) {
+
+        botonMusica.classList.toggle("reproduciendo", sonando);
+
+        botonMusica.title = sonando
+            ? "Pausar música"
+            : "Reproducir música";
+
+        botonMusica.setAttribute(
+            "aria-label",
+            sonando ? "Pausar música" : "Reproducir música"
+        );
+
+        avisoMusica.textContent = sonando
+            ? "🎶 "
+            : "🎵 ";
+    }
+
+    botonMusica.addEventListener("click", async function () {
+
+        if (musica.paused) {
+
+            try {
+
+                await musica.play();
+                actualizarBoton(true);
+
+            } catch (error) {
+
+                actualizarBoton(false);
+
+                avisoMusica.textContent =
+                    "⚠️ No se pudo reproducir. Comprueba que cancion.mp3 esté junto al HTML.";
+
+                console.error(
+                    "Error al reproducir la canción:",
+                    error
+                );
+            }
+
+        } else {
+
+            musica.pause();
+            actualizarBoton(false);
+
+        }
+    });
+
+    musica.addEventListener("playing", function () {
+        actualizarBoton(true);
+    });
+
+    musica.addEventListener("pause", function () {
+        actualizarBoton(false);
+    });
+
+    musica.addEventListener("error", function () {
+
+        actualizarBoton(false);
+
+        avisoMusica.textContent =
+            "⚠️ No se encontró cancion.mp3. Revisa el nombre y la carpeta.";
+
+        console.error(
+            "No se pudo cargar el MP3:",
+            musica.error
+        );
+    });
+
+});
+</script>
+
+</body>
+</html>
